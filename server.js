@@ -7,7 +7,7 @@ var friends = require("./app/data/friends.js");
 // console.log(newFriend);
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 4540;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
