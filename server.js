@@ -12,12 +12,17 @@ var PORT = process.env.PORT || 4540;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(express.static(path.join(__dirname, "./app/public")));
+
+require(path.join(__dirname, "./app/routing/apiRoutes"));
+require(path.join(__dirname, "./app/routing/htmlRoutes"));
+
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "/app/public/home.html"));
+  res.sendFile(path.join(__dirname, "app/public/home.html"));
 });
 
 app.get("/survey", function(req, res) {
-  res.sendFile(path.join(__dirname, "/app/public/survey.html"));
+  res.sendFile(path.join(__dirname, "app/public/survey.html"));
 });
 app.get("/api/friends", function(req, res) {
   return res.json(friends);
